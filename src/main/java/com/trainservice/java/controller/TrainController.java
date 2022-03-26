@@ -1,6 +1,7 @@
 package com.trainservice.java.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,16 +23,19 @@ public class TrainController {
 	
 	@GetMapping("/trains")
 	public ResponseEntity<TrainResponseDto> getAllTrains() {
-		return null;
+		TrainResponseDto trainResponseDto = trainService.getAllTrains();
+		return new ResponseEntity<TrainResponseDto>(trainResponseDto, HttpStatus.OK);
 	}
 	
 	@PostMapping("/trains")
 	public ResponseEntity<ResponseDto> saveTrain(@RequestBody TrainDetailsDto trainDetailsDto) {
-		return null;
+		ResponseDto responseDto = trainService.saveTrain(trainDetailsDto);
+		return new ResponseEntity<ResponseDto>(responseDto, HttpStatus.OK);
 	}
 	
 	@GetMapping("/trains/{trainId}")
 	public ResponseEntity<TrainDetailsResponseDto> getTrainById(@PathVariable Integer trainId) {
-		return null;
+		TrainDetailsResponseDto trainDetailsResponseDto = trainService.getTrainById(trainId);
+		return new ResponseEntity<TrainDetailsResponseDto>(trainDetailsResponseDto, HttpStatus.OK);
 	}
 }
