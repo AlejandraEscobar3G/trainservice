@@ -5,6 +5,12 @@ public class ResponseDto {
 	private String message;
 	private String statusCode;
 	
+	public ResponseDto(String message, String statusCode) {
+		super();
+		this.message = message;
+		this.statusCode = statusCode;
+	}
+	
 	public String getMessage() {
 		return message;
 	}

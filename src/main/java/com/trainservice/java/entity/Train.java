@@ -1,7 +1,15 @@
 package com.trainservice.java.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Train {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer trainId;
 	private String trainName;
 	private Integer trainCapacity;

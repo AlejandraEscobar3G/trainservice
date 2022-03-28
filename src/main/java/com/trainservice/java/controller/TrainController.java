@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.trainservice.java.dto.ResponseDto;
-import com.trainservice.java.dto.TrainDetailsDto;
+import com.trainservice.java.dto.TrainDetailsRequestDto;
 import com.trainservice.java.dto.TrainDetailsResponseDto;
 import com.trainservice.java.dto.TrainResponseDto;
 import com.trainservice.java.service.TrainService;
@@ -28,8 +28,8 @@ public class TrainController {
 	}
 	
 	@PostMapping("/trains")
-	public ResponseEntity<ResponseDto> saveTrain(@RequestBody TrainDetailsDto trainDetailsDto) {
-		ResponseDto responseDto = trainService.saveTrain(trainDetailsDto);
+	public ResponseEntity<ResponseDto> saveTrain(@RequestBody TrainDetailsRequestDto trainDetailsRequestDto) {
+		ResponseDto responseDto = trainService.saveTrain(trainDetailsRequestDto);
 		return new ResponseEntity<ResponseDto>(responseDto, HttpStatus.OK);
 	}
 	

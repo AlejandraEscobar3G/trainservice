@@ -2,19 +2,21 @@ package com.trainservice.java.dto;
 
 import java.util.List;
 
+import com.trainservice.java.entity.Train;
+
 public class TrainResponseDto extends ResponseDto {
 
-	private List<TrainDetailsDto> data;
-	
-	public TrainResponseDto() {
-		super();
+	private List<Train> data;
+
+	public TrainResponseDto(String message, String statusCode) {
+		super(message, statusCode);
 	}
 
-	public List<TrainDetailsDto> getData() {
+	public List<Train> getData() {
 		return data;
 	}
 
-	public void setData(List<TrainDetailsDto> data) {
+	public void setData(List<Train> data) {
 		this.data = data;
 	}
 
