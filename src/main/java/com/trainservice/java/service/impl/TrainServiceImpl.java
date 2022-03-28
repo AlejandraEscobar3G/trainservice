@@ -13,6 +13,7 @@ import com.trainservice.java.dto.TrainDetailsRequestDto;
 import com.trainservice.java.dto.TrainDetailsResponseDto;
 import com.trainservice.java.dto.TrainResponseDto;
 import com.trainservice.java.entity.Train;
+import com.trainservice.java.exception.TrainNotFoundException;
 import com.trainservice.java.repo.TrainRepo;
 import com.trainservice.java.service.TrainService;
 
@@ -47,8 +48,8 @@ public class TrainServiceImpl implements TrainService {
 	public TrainDetailsResponseDto getTrainById(Integer trainId) {
 		Optional<Train> trainOptional = trainRepo.findById(trainId);
 		
-		//if(trainOptional.isEmpty())
-			// throw train not found exception
+		if(trainOptional.isEmpty())
+			throw new TrainNotFoundException("Train not found: " + trainId);
 		
 		Train train = trainOptional.get();
 		TrainDetailsDto data = new TrainDetailsDto();
