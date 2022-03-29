@@ -11,6 +11,7 @@ public class Train {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer trainId;
+	
 	private String trainName;
 	private Integer trainCapacity;
 	

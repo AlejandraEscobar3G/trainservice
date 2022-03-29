@@ -1,5 +1,7 @@
 package com.trainservice.java.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +30,7 @@ public class TrainController {
 	}
 	
 	@PostMapping("/trains")
-	public ResponseEntity<ResponseDto> saveTrain(@RequestBody TrainDetailsRequestDto trainDetailsRequestDto) {
+	public ResponseEntity<ResponseDto> saveTrain(@Valid @RequestBody TrainDetailsRequestDto trainDetailsRequestDto) {
 		ResponseDto responseDto = trainService.saveTrain(trainDetailsRequestDto);
 		return new ResponseEntity<ResponseDto>(responseDto, HttpStatus.OK);
 	}

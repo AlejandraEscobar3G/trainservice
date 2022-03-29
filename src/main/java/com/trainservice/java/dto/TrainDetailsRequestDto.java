@@ -1,8 +1,14 @@
 package com.trainservice.java.dto;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class TrainDetailsRequestDto {
 	
+	@NotEmpty(message = "Train name is mandatory")
 	private String trainName;
+	
+	@NotNull(message = "Train capacity is mandatory")
 	private Integer trainCapacity;
 	
 	public String getTrainName() {
