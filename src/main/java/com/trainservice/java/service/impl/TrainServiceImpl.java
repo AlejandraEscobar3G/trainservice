@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.trainservice.java.constants.ApiConstants;
 import com.trainservice.java.dto.ResponseDto;
 import com.trainservice.java.dto.TrainDetailsDto;
 import com.trainservice.java.dto.TrainDetailsRequestDto;
@@ -27,7 +28,7 @@ public class TrainServiceImpl implements TrainService {
 	public TrainResponseDto getAllTrains() {
 		List<Train> trainList = trainRepo.findAll();
 		
-		TrainResponseDto trainResponseDto = new TrainResponseDto("Trains fetched", "T-200");
+		TrainResponseDto trainResponseDto = new TrainResponseDto("Trains fetched", ApiConstants.TRAINS_SUCCESSFULLY_FETCHED);
 		trainResponseDto.setData(trainList);
 		
 		return trainResponseDto;
@@ -41,7 +42,7 @@ public class TrainServiceImpl implements TrainService {
 		
 		trainRepo.save(train);
 		
-		return new ResponseDto("Train Saved", "T-200");
+		return new ResponseDto("Train Saved", ApiConstants.TRAIN_SUCCESSFULLY_SAVED);
 	}
 
 	@Override
@@ -55,7 +56,7 @@ public class TrainServiceImpl implements TrainService {
 		TrainDetailsDto data = new TrainDetailsDto();
 		BeanUtils.copyProperties(train, data);
 		
-		TrainDetailsResponseDto trainDetailsResponseDto = new TrainDetailsResponseDto("Train fetched", "T-200");
+		TrainDetailsResponseDto trainDetailsResponseDto = new TrainDetailsResponseDto("Train fetched", ApiConstants.TRAINS_SUCCESSFULLY_FETCHED);
 		trainDetailsResponseDto.setData(data);
 		
 		return trainDetailsResponseDto;
